@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style> 
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    #menu ul {
+        background-color: #b3fff9;
+        list-style-type: none;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+    }
+    #menu ul li {
+        display: inline-block;
+        width: 120px;
+        height: 40px;
+        line-height: 40px;
+        margin-left: -5px;
+    }
+    #menu ul li a {
+        display: block;
+        color: black;
+        text-align: center;
+        text-decoration: none;
+        font-weight: bold;
+    }
+    #menu ul li a:hover {
+        background-color: #00cc99;
+        color: #333;
+    }
+    
+
+</style>
+<body>
+    <div id="menu">
+        <ul id="u1">
+            <li ><a href="#" class="link1">Home</a></li>
+            <li ><a href="#" class="link1">News</a></li>
+            <li ><a href="#" class="link1">Contact</a></li>
+            <li ><a href="#" class="link1">About</a></li>
+        </ul>
+        <div>   
+            <button id="myBtn">Showme</button>
+            <input type="text" id="name" value="HuyHa">
+            <button id="myBtn2">Change Background Color</button>
+        </div>
+    </div>
+    
+    <script>
+        var listColor = ["#33ccff", "#33cccc", "#99ff33", "#ff6600"];
+        var nodes = document.getElementById('u1').getElementsByTagName("a");
+        for(var i = 0; i < nodes.length; i++ ){
+            nodes[i].style.color = listColor[i];
+        }
+
+        function showMe() {
+            alert(document.getElementById("name").value);
+        }
+        document.getElementById("myBtn").addEventListener("click", showMe);
+
+        function changeBackgroundColor() {
+            let x = document.getElementsByClassName('link1');
+            for(var i = 0; i < x.length; i++){
+                x[i].style.background = document.getElementById("name").value; 
+            }
+        }
+        document.getElementById('myBtn2').addEventListener('click', changeBackgroundColor);
+
+        
+        console.log(document.getElementById('u1').parentNode.nodeName);
+
+        console.log(document.getElementById('menu').lastChild); 
+        console.log(document.getElementById('menu').lastElementChild);
+
+        console.log(document.getElementById('menu').childNodes); //nodeslist
+        console.log(document.getElementById('menu').children); ///htmlcolections
+
+        console.log(document.getElementById('u1').nextSibling.nodeName);
+        console.log(document.getElementById('u1').nextElementSibling.nodeName);
+        
+        
+    </script>
+</body>
+</head>
+</html>
